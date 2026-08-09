@@ -35,7 +35,7 @@
         <div class="account-card-heading"><div><span>01</span><h2>Public profile</h2></div><p>Your name and optional details inside Braids.</p></div>
         <form class="account-form profile-form-grid" data-profile-form>
           <label>Display name<input type="text" name="display_name" maxlength="80" autocomplete="name" required /></label>
-          <label>Username<input type="text" name="username" minlength="3" maxlength="30" pattern="[a-z0-9][a-z0-9_-]{2,29}" autocomplete="username" placeholder="brunomelicio" /><small>Lowercase letters, numbers, hyphens and underscores.</small></label>
+          <label>Username<input type="text" name="username" minlength="3" maxlength="30" pattern="[a-z0-9][a-z0-9_-]{2,29}" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="choose-your-username" /><small>Optional. Use lowercase letters, numbers, hyphens or underscores.</small></label>
           <label>Country<input type="text" name="country" maxlength="80" autocomplete="country-name" /></label>
           <label class="form-span">About you<textarea name="bio" rows="4" maxlength="320" placeholder="A short introduction…"></textarea></label>
           <div class="form-span form-actions"><button class="button button-primary" type="submit">Save profile</button></div>
