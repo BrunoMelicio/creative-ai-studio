@@ -1,76 +1,123 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Creative AI Studio — Bruno Melício</title>
-  <meta name="description"
-    content="Creative AI Studio by Bruno Melício. Cinematic AI imagery, short-form video and visual experiments. Launching soon." />
-  <meta name="theme-color" content="#0b0b0b" />
-  <meta property="og:title" content="Creative AI Studio — Bruno Melício" />
-  <meta property="og:description" content="Ideas, made visible. Creative AI imagery, motion and brand stories." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://studio.brunomelicio.com/" />
-  <meta property="og:image" content="https://studio.brunomelicio.com/assets/artist.png" />
-  <link rel="canonical" href="https://studio.brunomelicio.com/" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-  <link rel="stylesheet" href="assets/studio.css?v=1.0" />
+  <meta name="description" content="Braids is a template-first AI studio for creating with leading image and video models." />
+  <title>Braids — AI creative studio</title>
+  <link rel="stylesheet" href="assets/studio.css" />
+  <script>document.documentElement.dataset.theme = localStorage.getItem('studio-theme') || 'light';</script>
 </head>
-
-<body>
-  <a class="skip-link" href="#studio-main">Skip to content</a>
-
-  <header class="studio-header">
-    <a class="studio-wordmark" href="./" aria-label="Creative AI Studio home">
-      <span>Creative AI</span>
-      <strong>Studio</strong>
-    </a>
-    <a class="research-link" href="https://brunomelicio.com/">
-      <span>Bruno Melício</span>
-      <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
-    </a>
+<body data-page="home">
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Braids home"><span class="brand-logo theme-logo" aria-hidden="true"><img class="theme-logo-light" src="assets/images/logo_light.png" alt="" /><img class="theme-logo-dark" src="assets/images/logo_dark.png" alt="" /></span><span>Braids</span></a>
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="#gallery">Gallery</a><a href="#templates">Templates</a><a href="#models">Models</a><a href="#shop">Shop</a><a href="about.html">About</a>
+    </nav>
+    <div class="header-actions">
+      <button class="theme-toggle" type="button" aria-label="Switch theme"><span></span></button>
+      <a class="login-link" href="login.html" data-auth-link>Log in</a>
+      <a class="button button-primary" href="create.html">Start creating</a>
+    </div>
   </header>
 
-  <main id="studio-main" class="studio-main">
-    <section class="studio-hero" aria-labelledby="studio-title">
-      <div class="studio-copy">
-        <p class="studio-kicker">Independent creative practice</p>
-        <h1 id="studio-title">Ideas,<br />made visible.</h1>
-        <p class="studio-intro">Cinematic AI imagery, short-form video and visual experiments for brands, culture and
-          the internet.</p>
-
-        <div class="studio-actions">
-          <span class="studio-status">Launching soon</span>
-          <a class="instagram-link" href="https://www.instagram.com/brunomelicio.ai" target="_blank"
-            rel="noopener noreferrer">
-            Follow the work
-            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
-          </a>
+  <main>
+    <section class="landing-hero section-shell">
+      <div class="hero-copy">
+        <h1>The best models,<br />braided.</h1>
+        <p>Thousands of ready-made templates turn one photo into a finished image or video. Choose the result. The model mix is already built in.</p>
+        <div class="hero-actions"><a class="button button-primary" href="#templates">Explore templates <span>→</span></a><a class="text-link" href="create.html">Create from scratch</a></div>
+        <p class="hero-note">No model research. No workflow setup. Just choose, upload and create.</p>
+      </div>
+      <div class="hero-studio-card" aria-label="Braids creator preview">
+        <div class="braid-mode-row" aria-label="Creation choices"><span class="is-selected">Templates</span><span>Combine models</span><span>Choose one model</span></div>
+        <div class="hero-template-card">
+          <figure><img src="assets/images/template-studio-portrait.jpg" alt="Professional studio portrait template preview" /></figure>
+          <div class="hero-template-copy"><span>One-photo template</span><h2>Studio portrait</h2><p>Upload one clear photo. Receive four coordinated studio-grade portraits.</p></div>
         </div>
+        <div class="hero-template-footer"><div><small>Input</small><strong>1 photo</strong></div><i>→</i><div><small>Models</small><strong>Nano Banana 2 + GPT Image 2</strong></div><i>→</i><div><small>Result</small><strong>4 portraits</strong></div></div>
+      </div>
+    </section>
 
-        <p class="studio-credit">Founded by AI researcher Bruno Melício.</p>
+    <section class="gallery-section section-shell" id="gallery">
+      <div class="section-heading heading-row"><div><h2>Made with Braids.</h2><p>Real work across portraiture, products, sport, natural photography and imagined worlds.</p></div><a class="text-link" href="create.html">Create your own →</a></div>
+
+      <div class="gallery-feature" aria-labelledby="featured-gallery-title">
+        <div class="gallery-feature-copy"><span>Featured work · 01</span><h3 id="featured-gallery-title">One visual world.<br />Four connected images.</h3><p>A model, a product and a companion developed as one cohesive campaign—not four unrelated generations.</p></div>
+        <figure class="feature-model"><img src="assets/gallery/showcase_1/model.png" alt="Editorial studio portrait of a model" loading="lazy" /></figure>
+        <div class="feature-stack"><figure><img src="assets/gallery/showcase_1/product.png" alt="Orange knitted hat product photograph" loading="lazy" /></figure><figure><img src="assets/gallery/showcase_1/companion.png" alt="Portrait of a husky companion" loading="lazy" /></figure></div>
+        <figure class="feature-wide"><img src="assets/gallery/showcase_1/_meta__2k_202601090815.jpeg" alt="Close editorial crop of a model and husky" loading="lazy" /></figure>
       </div>
 
-      <figure class="studio-visual">
-        <img src="assets/artist.png" alt="Bruno Melício working at an easel in a bright creative studio" width="1152"
-          height="1536" />
-        <figcaption>
-          <span>AI imagery</span>
-          <span>Motion</span>
-          <span>Brand stories</span>
-        </figcaption>
-      </figure>
+      <div class="gallery-browser">
+        <div class="gallery-browser-head"><div><span>Selected work</span><h3>Explore the gallery.</h3></div><div class="gallery-filters" aria-label="Filter gallery"><button class="is-active" type="button" data-gallery-filter="all">All</button><button type="button" data-gallery-filter="sports">Sports</button><button type="button" data-gallery-filter="natural">Natural</button><button type="button" data-gallery-filter="portraits">Portraits</button><button type="button" data-gallery-filter="products">Products & macro</button><button type="button" data-gallery-filter="worlds">Worlds</button></div></div>
+        <div class="art-gallery" data-art-gallery>
+          <figure class="art-piece" data-gallery-category="sports"><img src="assets/gallery/hf_20260116_224541_e2fb4b3b-4db7-464f-baa3-d66c23528308.png" alt="Footballer in a blue locker room" loading="lazy" /><figcaption>Locker room · Sports</figcaption></figure>
+          <figure class="art-piece" data-gallery-category="natural"><img src="assets/gallery/Act_as_a_202511290835.JPEG" alt="Natural lifestyle portrait in a café" loading="lazy" /><figcaption>Café light · Natural</figcaption></figure>
+          <figure class="art-piece" data-gallery-category="products"><img src="assets/gallery/A_macro_lens_2k_202602221452.JPEG" alt="Macro photograph of a black tie and suit" loading="lazy" /><figcaption>Tailoring study · Macro</figcaption></figure>
+          <figure class="art-piece" data-gallery-category="portraits"><img src="assets/gallery/showcase_1/_subject__2k_202601090759.jpeg" alt="Warm studio beauty portrait" loading="lazy" /><figcaption>Warm light · Studio</figcaption></figure>
+          <figure class="art-piece" data-gallery-category="worlds"><img src="assets/gallery/hf_20260802_083015_a49f341e-68ad-4fd4-b7cc-f44e2916aa73.png" alt="Natural gaming scene" loading="lazy" /><figcaption>Player one · Lifestyle</figcaption></figure>
+          <figure class="art-piece" data-gallery-category="sports"><img src="assets/gallery/hf_20260117_013802_ee68dd6a-1866-4ee5-a6f7-72bf71878827.png" alt="Footballer seated in a dramatic blue stadium scene" loading="lazy" /><figcaption>Match night · Sports</figcaption></figure>
+          <figure class="art-piece" data-gallery-category="natural"><img src="assets/gallery/Create_a_2000s_202511300756%20(1).JPEG" alt="Casual early-2000s style portrait" loading="lazy" /><figcaption>2000s frame · iPhone</figcaption></figure>
+          <figure class="art-piece" data-gallery-category="portraits"><img src="assets/gallery/hf_20260330_181641_6aca6da5-a6d4-40c6-940d-0fe50b79a7e4.png" alt="Editorial portrait by a waterfall" loading="lazy" /><figcaption>Waterfall · Editorial</figcaption></figure>
+          <figure class="art-piece" data-gallery-category="products"><img src="assets/gallery/A_macro_photograph_2k_202602221555.JPEG" alt="Macro leather product photograph" loading="lazy" /><figcaption>Leather study · Product</figcaption></figure>
+          <figure class="art-piece" data-gallery-category="sports"><img src="assets/gallery/hf_20260130_112516_5dee695e-bab8-4827-bb88-82b659f6817c.png" alt="Football player card campaign" loading="lazy" /><figcaption>Team of the year · Sports</figcaption></figure>
+          <figure class="art-piece" data-gallery-category="portraits"><img src="assets/gallery/showcase_1/0f40e4ef-bcc1-4652-8520-199079124c27.png" alt="Studio portrait from the Braids edit" loading="lazy" /><figcaption>The Braids edit · Portrait</figcaption></figure>
+          <figure class="art-piece" data-gallery-category="natural"><img src="assets/gallery/hf_20260330_181653_42fc1159-b6ff-4c6b-a4b2-573ffbbe1947.png" alt="Natural close portrait in a waterfall" loading="lazy" /><figcaption>Water portrait · Natural</figcaption></figure>
+          <figure class="art-piece" data-gallery-category="products"><img src="assets/gallery/showcase_1/product.png" alt="Orange knit hat product image" loading="lazy" /><figcaption>Winter orange · Product</figcaption></figure>
+          <figure class="art-piece" data-gallery-category="worlds"><img src="assets/gallery/i.PNG" alt="Cinematic character portrait outside a manor" loading="lazy" /><figcaption>The arrival · Character</figcaption></figure>
+          <figure class="art-piece" data-gallery-category="portraits"><img src="assets/gallery/showcase_1/bryanai_A_professional_and_hyperrealistic_studio_portrait_of__34578b7f-02da-4d89-bc34-10b17c0ede9d_3.png" alt="Professional studio portrait" loading="lazy" /><figcaption>Studio grade · Portrait</figcaption></figure>
+          <figure class="art-piece" data-gallery-category="portraits"><img src="assets/gallery/hf_20260802_094157_4dc4b512-288a-4315-be45-682eade1deb5.png" alt="Natural phone-camera portrait" loading="lazy" /><figcaption>After hours · iPhone</figcaption></figure>
+        </div>
+      </div>
     </section>
+
+    <section class="templates-section section-shell" id="templates">
+      <div class="section-heading heading-row"><div><span class="section-kicker">Template library</span><h2>One photo.<br />Thousands of possibilities.</h2><p>Every template contains the prompt, format and model workflow already prepared. Choose a look, upload one photo and create.</p></div><a class="text-link" href="create.html#templates">Browse all templates →</a></div>
+      <div class="template-grid homepage-template-grid">
+        <article class="template-card"><div class="template-media"><img class="template-image" src="assets/images/template-cape-verdeanized.jpg" alt="Portraits with professionally styled braids" loading="lazy" /><span class="template-kind">Image template</span></div><div class="template-content"><div><h3>Get Cape Verdeanized</h3><p>See yourself with a professionally styled braided look while preserving your identity.</p></div><dl class="template-details"><div><dt>Input</dt><dd>1 photo</dd></div><div><dt>Result</dt><dd>Portrait set</dd></div></dl><a class="template-action" href="create.html#templates">Use template <span>↗</span></a></div></article>
+        <article class="template-card"><div class="template-media"><img class="template-image" src="assets/images/template-studio-portrait.jpg" alt="Four coordinated studio portraits" loading="lazy" /><span class="template-kind">Image template</span></div><div class="template-content"><div><h3>Studio portrait</h3><p>Turn one clear photo into four professional, coordinated studio portraits.</p></div><dl class="template-details"><div><dt>Input</dt><dd>1 photo</dd></div><div><dt>Result</dt><dd>4 portraits</dd></div></dl><a class="template-action" href="create.html#templates">Use template <span>↗</span></a></div></article>
+        <article class="template-card template-card-video"><div class="template-media"><img class="template-image" src="assets/images/template-fan-stadium.jpg" alt="Cape Verde supporter celebrating in a stadium" loading="lazy" /><span class="template-kind">Video template</span></div><div class="template-content"><div><h3>Fan stadium</h3><p>Step into the stands wearing Cape Verde colours and celebrate with the crowd.</p></div><dl class="template-details"><div><dt>Input</dt><dd>1 photo</dd></div><div><dt>Result</dt><dd>5-sec video</dd></div></dl><a class="template-action" href="create.html#templates">Use template <span>↗</span></a></div></article>
+      </div>
+      <div class="template-library-note"><strong>More templates are added continuously.</strong><span>Portraits, products, sport, fashion, travel, video and more.</span></div>
+    </section>
+
+    <section class="models-section" id="models">
+      <div class="section-shell">
+        <div class="section-heading heading-row"><div><span class="section-kicker">Model catalogue</span><h2>Leading models.<br />One studio.</h2><p>Use a single model or combine image and video models in one workflow. Templates hide the setup; the creator gives you full control.</p></div><a class="text-link" href="create.html">Open creator →</a></div>
+        <div class="model-catalogue">
+          <article class="api-model-card"><div><span>Image · Fast</span><em>Google</em></div><h3>Nano Banana 2 Lite</h3><p>Fast image creation for drafts, variations and everyday templates.</p><footer><strong>$0.0336</strong><span>per 1K-res image*</span></footer></article>
+          <article class="api-model-card model-popular"><div><span>Image · Popular</span><em>Google</em></div><h3>Nano Banana 2</h3><p>Higher-quality image generation with strong instruction following and editing.</p><footer><strong>from $0.067</strong><span>per 1K-res image*</span></footer></article>
+          <article class="api-model-card"><div><span>Image · Premium</span><em>OpenAI</em></div><h3>GPT Image 2</h3><p>High-fidelity image creation and editing for finished visual work.</p><footer><strong>$30 / 1M</strong><span>output image tokens*</span></footer></article>
+          <article class="api-model-card"><div><span>Video · Mini</span><em>ByteDance</em></div><h3>Seedance 2.0 Mini</h3><p>Efficient motion generation for fast previews and lightweight social clips.</p><footer><strong>from $0.05</strong><span>per second*</span></footer></article>
+          <article class="api-model-card"><div><span>Video · Fast</span><em>ByteDance</em></div><h3>Seedance 2.0 Fast</h3><p>Faster video generation with a practical balance of speed and quality.</p><footer><strong>from $0.08</strong><span>per second*</span></footer></article>
+          <article class="api-model-card"><div><span>Video · Premium</span><em>ByteDance</em></div><h3>Seedance 2.0</h3><p>Higher-resolution video generation for cinematic and campaign work.</p><footer><strong>from $0.11</strong><span>per second*</span></footer></article>
+        </div>
+        <div class="pay-as-you-create" id="pricing"><div><span>Pay as you create</span><h3>No subscription. No credits to decode.</h3></div><p>Every generation shows its final price before you confirm it. Provider base rates above are shown in USD for reference; Braids displays the exact total for your chosen model, format and duration.</p></div>
+        <p class="preview-disclaimer">*Current provider base rates are indicative and vary by resolution, quality and output size. Live generation will be connected progressively.</p>
+      </div>
+    </section>
+
+    <section class="shop-preview section-shell" id="shop">
+      <div class="section-heading heading-row"><div><span class="section-kicker">Braids shop</span><h2>Prompt packs,<br />ready to use.</h2><p>Curated prompts, reference outputs and practical guidance—built for consistent results across leading image models.</p></div><a class="text-link" href="shop.html">Explore the shop →</a></div>
+      <div class="shop-preview-grid">
+        <a class="pack-card pack-card-featured" href="shop.html"><img src="assets/services/covers/BEACH_DAYS_Prompt_Pack.jpg" alt="Beach Days AI influencer prompt pack cover" loading="lazy" /><div><span>AI influencer pack · Vol. 03</span><h3>Beach Days</h3><p>Ten sun-drenched scenes, multiple model outputs and ready-to-use prompts.</p><strong>View pack →</strong></div></a>
+        <a class="pack-card" href="shop.html"><img src="assets/services/covers/THE_BLONDE_Prompt_Pack.jpg" alt="The Blondes prompt pack cover" loading="lazy" /><div><span>Character prompt pack</span><h3>The Blondes</h3><p>Distinct looks and consistent character directions.</p><strong>View pack →</strong></div></a>
+        <a class="pack-card" href="shop.html"><img src="assets/services/covers/UNIQUE_CHARACTERS_Vol1_The_Vitiligos.jpg" alt="Unique Characters prompt pack cover" loading="lazy" /><div><span>Unique Characters · Vol. 01</span><h3>The Vitiligos</h3><p>Editorial character concepts with visual examples.</p><strong>View pack →</strong></div></a>
+      </div>
+    </section>
+
+    <section class="about-teaser section-shell">
+      <div><span class="braids-mini-mark theme-logo" aria-hidden="true"><img class="theme-logo-light" src="assets/images/logo_light.png" alt="" /><img class="theme-logo-dark" src="assets/images/logo_dark.png" alt="" /></span><h2>Separate models.<br />One deliberate result.</h2></div>
+      <div><p>AI is advancing too quickly for creators to rebuild every workflow from scratch. Braids turns that complexity into ready-made templates and one clear creative process.</p><p>Like strands in a braid, image and video models can work together—while you remain free to use a single model whenever you prefer.</p><a class="text-link" href="about.html">Why Braids →</a></div>
+    </section>
+
+    <section class="final-cta section-shell"><div><h2>Your next idea starts here.</h2><p>Create an account and enter the studio. Pay only when you choose to generate.</p></div><a class="button button-light" href="create.html">Start creating →</a></section>
   </main>
 
-  <footer class="studio-footer">
-    <span>Creative AI Studio</span>
-    <span>© 2026 Bruno Melício</span>
-  </footer>
+  <footer class="site-footer"><a class="brand footer-brand" href="index.html"><span class="brand-logo theme-logo" aria-hidden="true"><img class="theme-logo-light" src="assets/images/logo_light.png" alt="" /><img class="theme-logo-dark" src="assets/images/logo_dark.png" alt="" /></span><span>Braids</span></a><p>Independent creative AI studio founded by Bruno Melício.</p><div><a href="about.html">About Braids</a><a href="https://www.brunomelicio.com/" target="_blank" rel="noopener">Research website ↗</a><span>© 2026 Braids</span></div></footer>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.102.0/dist/umd/supabase.min.js" defer></script>
+  <script src="assets/supabase-config.js" defer></script><script src="assets/auth.js" defer></script><script src="assets/studio.js" defer></script>
 </body>
-
 </html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Manage your Braids profile and account." />
+  <title>Your profile — Braids</title>
+  <link rel="stylesheet" href="assets/studio.css" />
+  <script>document.documentElement.dataset.theme=localStorage.getItem('studio-theme')||'light';</script>
+</head>
+<body data-page="profile" data-auth-required="true">
+  <header class="site-header app-header">
+    <a class="brand" href="index.html" aria-label="Braids home"><span class="brand-logo theme-logo" aria-hidden="true"><img class="theme-logo-light" src="assets/images/logo_light.png" alt="" /><img class="theme-logo-dark" src="assets/images/logo_dark.png" alt="" /></span><span>Braids</span></a>
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
+    <nav class="site-nav"><a href="create.html">Create</a><a href="library.html">Library</a><a href="shop.html">Shop</a><a href="index.html#pricing">Pricing</a><a href="about.html">About</a></nav>
+    <div class="header-actions"><button class="theme-toggle" type="button" aria-label="Switch theme"><span></span></button><button class="account-button" type="button" data-account-button aria-expanded="false">Account</button></div>
+    <div class="account-menu" data-account-menu hidden><strong data-account-email>Account</strong><a href="profile.html">My profile</a><a href="library.html">My library</a><a href="admin.html" data-admin-link hidden>Admin dashboard</a><button type="button" data-logout>Log out</button></div>
+  </header>
+
+  <main class="account-page section-shell">
+    <section class="account-hero">
+      <div><span class="section-kicker">Your account</span><h1 data-profile-name>Your profile.</h1><p>Manage your identity, sign-in details and privacy from one place.</p></div>
+      <div class="profile-summary"><div><span>Account</span><strong data-profile-role>Creator</strong></div><div><span>Email</span><strong data-profile-email>—</strong></div><div><span>Joined</span><strong data-profile-created>—</strong></div></div>
+    </section>
+
+    <div class="auth-status account-global-status" data-account-status role="status" aria-live="polite" hidden></div>
+
+    <section class="account-grid">
+      <article class="account-card account-card-wide">
+        <div class="account-card-heading"><div><span>01</span><h2>Public profile</h2></div><p>Your name and optional details inside Braids.</p></div>
+        <form class="account-form profile-form-grid" data-profile-form>
+          <label>Display name<input type="text" name="display_name" maxlength="80" autocomplete="name" required /></label>
+          <label>Username<input type="text" name="username" minlength="3" maxlength="30" pattern="[a-z0-9][a-z0-9_-]{2,29}" autocomplete="username" placeholder="brunomelicio" /><small>Lowercase letters, numbers, hyphens and underscores.</small></label>
+          <label>Country<input type="text" name="country" maxlength="80" autocomplete="country-name" /></label>
+          <label class="form-span">About you<textarea name="bio" rows="4" maxlength="320" placeholder="A short introduction…"></textarea></label>
+          <div class="form-span form-actions"><button class="button button-primary" type="submit">Save profile</button></div>
+        </form>
+      </article>
+
+      <article class="account-card">
+        <div class="account-card-heading"><div><span>02</span><h2>Email</h2></div><p>Changing it requires confirmation.</p></div>
+        <form class="account-form" data-email-form><label>Email address<input type="email" name="email" autocomplete="email" required /></label><button class="button button-dark" type="submit">Update email</button></form>
+      </article>
+
+      <article class="account-card">
+        <div class="account-card-heading"><div><span>03</span><h2>Password</h2></div><p>Use at least eight characters.</p></div>
+        <form class="account-form" data-password-form><label>New password<input type="password" name="password" minlength="8" autocomplete="new-password" required /></label><label>Confirm password<input type="password" name="confirm" minlength="8" autocomplete="new-password" required /></label><button class="button button-dark" type="submit">Update password</button></form>
+      </article>
+
+      <article class="account-card account-card-wide security-card">
+        <div class="account-card-heading"><div><span>04</span><h2>Security & privacy</h2></div><p>Control active sessions or permanently remove your account.</p></div>
+        <div class="security-actions"><div><h3>Sign out everywhere</h3><p>Ends every active Braids session on your devices.</p><button class="button button-dark" type="button" data-logout-all>Sign out all sessions</button></div><div class="danger-zone"><h3>Delete account</h3><p>This permanently removes your login and profile. Type <strong>DELETE</strong> to continue.</p><input type="text" data-delete-confirmation autocomplete="off" aria-label="Type DELETE to confirm" placeholder="DELETE" /><button class="button danger-button" type="button" data-delete-account disabled>Delete my account</button></div></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.102.0/dist/umd/supabase.min.js" defer></script><script src="assets/supabase-config.js" defer></script><script src="assets/auth.js" defer></script><script src="assets/account.js" defer></script><script src="assets/studio.js" defer></script>
+</body>
+</html>

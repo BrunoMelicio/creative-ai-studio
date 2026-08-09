@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width,initial-scale=1" /><meta name="description" content="Create AI images and videos with Braids." /><title>Create — Braids</title><link rel="stylesheet" href="assets/studio.css?v=20260807" /><script>document.documentElement.dataset.theme=localStorage.getItem('studio-theme')||'light';</script></head>
+<body data-page="create" data-auth-required="true">
+  <header class="site-header app-header"><a class="brand" href="index.html"><span class="brand-logo theme-logo" aria-hidden="true"><img class="theme-logo-light" src="assets/images/logo_light.png" alt="" /><img class="theme-logo-dark" src="assets/images/logo_dark.png" alt="" /></span><span>Braids</span></a><button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button><nav class="site-nav"><a class="is-active" href="create.html">Create</a><a href="library.html">Library</a><a href="shop.html">Shop</a><a href="index.html#pricing">Pricing</a><a href="about.html">About</a></nav><div class="header-actions"><button class="theme-toggle" type="button" aria-label="Switch theme"><span></span></button><button class="account-button" type="button" data-account-button aria-expanded="false">Account</button></div><div class="account-menu" data-account-menu hidden><strong data-account-email>Account</strong><a href="profile.html">My profile</a><a href="library.html">My library</a><a href="admin.html" data-admin-link hidden>Admin dashboard</a><button type="button" data-logout>Log out</button></div></header>
+  <main class="app-page section-shell">
+    <section class="creator-intro"><div><h1>What will you create?</h1><p>Describe an idea, choose a model and see the exact price before generation.</p></div><span class="preview-pill">Braids preview</span></section>
+    <section class="creator-layout">
+      <div class="prompt-panel">
+        <div class="mode-switch" role="tablist"><button class="is-active" type="button" data-mode="image">Image</button><button type="button" data-mode="video">Video</button></div>
+        <label class="prompt-field" for="prompt-input"><span>Describe your idea</span><textarea id="prompt-input" rows="8" placeholder="A cinematic portrait on a quiet beach at golden hour…"></textarea></label>
+        <div class="prompt-tools"><input id="reference-upload" type="file" accept="image/*" hidden /><label class="upload-button" for="reference-upload">＋ Upload a photo</label><div class="upload-preview" hidden><span class="upload-thumb"></span><span class="upload-name"></span><button type="button" data-remove-upload>×</button></div></div>
+      </div>
+      <aside class="settings-panel"><div class="setting-title"><span>Choose a model</span></div><div class="model-options" data-model-options></div><div class="compact-settings"><label><span>Format</span><select id="aspect-ratio"><option>Square · 1:1</option><option>Portrait · 4:5</option><option selected>Wide · 16:9</option><option>Story · 9:16</option></select></label><div class="quantity-control"><span>Results</span><div><button type="button" data-quantity="minus">−</button><strong data-quantity-value>1</strong><button type="button" data-quantity="plus">+</button></div></div></div><div class="price-summary"><div><span>Price per result</span><strong data-unit-price>€0.12</strong></div><div><span>Total</span><strong data-total-price>€0.12</strong></div></div><button class="generate-button" type="button" data-generate>Generate <span data-generate-price>· €0.12</span></button><p class="pricing-copy">AI generation is not connected yet. This control currently creates a visual preview only.</p></aside>
+    </section>
+    <section class="app-section template-section" id="templates">
+      <div class="section-heading heading-row">
+        <div>
+          <span class="section-kicker">One-photo templates</span>
+          <h2>One photo.<br />A complete result.</h2>
+          <p>Choose a direction, upload one clear photo and let Braids shape the rest.</p>
+        </div>
+        <span class="template-preview-label">Template preview</span>
+      </div>
+      <div class="template-grid">
+        <article class="template-card">
+          <div class="template-media">
+            <img class="template-image" src="assets/images/template-cape-verdeanized.jpg" alt="Male and female portraits with professionally styled braids" loading="lazy" decoding="async" />
+            <span class="template-kind">Image template</span>
+          </div>
+          <div class="template-content">
+            <div>
+              <h3>Get Cape Verdeanized</h3>
+              <p>Upload a portrait and see yourself with a professionally styled braided look.</p>
+            </div>
+            <dl class="template-details">
+              <div><dt>Input</dt><dd>1 photo</dd></div>
+              <div><dt>Result</dt><dd>Male or female</dd></div>
+            </dl>
+            <button class="template-action" type="button" data-template="Get Cape Verdeanized" data-template-mode="image" data-template-prompt="Create a polished portrait of the uploaded person with a professionally styled braided hairstyle while preserving their identity, features and natural proportions.">
+              Use template <span aria-hidden="true">&#8599;</span>
+            </button>
+          </div>
+        </article>
+
+        <article class="template-card">
+          <div class="template-media">
+            <img class="template-image" src="assets/images/template-studio-portrait.jpg" alt="Four professional studio portrait variations of the same person" loading="lazy" decoding="async" />
+            <span class="template-kind">Image template</span>
+          </div>
+          <div class="template-content">
+            <div>
+              <h3>Studio portrait</h3>
+              <p>Turn one clear photo into a coordinated set of professional studio-grade portraits.</p>
+            </div>
+            <dl class="template-details">
+              <div><dt>Input</dt><dd>1 photo</dd></div>
+              <div><dt>Result</dt><dd>4 portraits</dd></div>
+            </dl>
+            <button class="template-action" type="button" data-template="Studio portrait" data-template-mode="image" data-template-prompt="Create four coordinated professional studio portraits of the uploaded person, preserving their identity and natural proportions, with premium lighting and subtle variations in framing.">
+              Use template <span aria-hidden="true">&#8599;</span>
+            </button>
+          </div>
+        </article>
+
+        <article class="template-card template-card-video">
+          <div class="template-media">
+            <img class="template-image" src="assets/images/template-fan-stadium.jpg" alt="Cape Verde supporter celebrating in a football stadium" loading="lazy" decoding="async" />
+            <span class="template-kind">Video template</span>
+          </div>
+          <div class="template-content">
+            <div>
+              <h3>Fan stadium</h3>
+              <p>Step into the stands wearing Cape Verde colours and celebrate with the crowd.</p>
+            </div>
+            <dl class="template-details">
+              <div><dt>Input</dt><dd>1 photo</dd></div>
+              <div><dt>Result</dt><dd>5-second video</dd></div>
+            </dl>
+            <button class="template-action" type="button" data-template="Fan stadium" data-template-mode="video" data-template-prompt="Create a five-second cinematic video of the uploaded person celebrating in packed stadium stands, wearing a Cape Verde football shirt and supporting the national team.">
+              Use template <span aria-hidden="true">&#8599;</span>
+            </button>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+  <div class="toast" role="status" aria-live="polite" hidden></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.102.0/dist/umd/supabase.min.js" defer></script><script src="assets/supabase-config.js" defer></script><script src="assets/auth.js?v=20260807" defer></script><script src="assets/studio.js?v=20260807" defer></script>
+</body></html>
