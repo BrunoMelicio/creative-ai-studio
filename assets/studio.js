@@ -139,28 +139,6 @@
   });
   if (modelOptions) renderModels();
 
-  const libraryCards = [...document.querySelectorAll('.library-card')];
-  const filterButtons = [...document.querySelectorAll('[data-filter]')];
-  const search = document.querySelector('[data-library-search]');
-  const emptyState = document.querySelector('[data-empty-state]');
-  let filter = 'all';
-  const filterLibrary = () => {
-    let visible = 0;
-    const query = search?.value.toLowerCase().trim() || '';
-    libraryCards.forEach((card) => {
-      const matches = (filter === 'all' || card.dataset.category === filter) && (!query || card.dataset.title.toLowerCase().includes(query));
-      card.hidden = !matches;
-      if (matches) visible += 1;
-    });
-    if (emptyState) emptyState.hidden = visible > 0;
-  };
-  filterButtons.forEach((button) => button.addEventListener('click', () => {
-    filter = button.dataset.filter;
-    filterButtons.forEach((item) => item.classList.toggle('is-active', item === button));
-    filterLibrary();
-  }));
-  search?.addEventListener('input', filterLibrary);
-
   const galleryPieces = [...document.querySelectorAll('[data-gallery-category]')];
   const galleryFilterButtons = [...document.querySelectorAll('[data-gallery-filter]')];
   galleryFilterButtons.forEach((button) => button.addEventListener('click', () => {

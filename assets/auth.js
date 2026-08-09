@@ -24,6 +24,7 @@
   const requestedNext = params.get('next');
   const safeNext = requestedNext && /^[a-z0-9_-]+\.html(?:[?#].*)?$/i.test(requestedNext) ? requestedNext : 'create.html';
   const status = document.querySelector('[data-auth-status]');
+  let verifiedUser = null;
 
   const showStatus = (message, type = 'info') => {
     if (!status) return;
@@ -50,6 +51,13 @@
     document.querySelectorAll('[data-account-email]').forEach((node) => { node.textContent = label; });
     document.querySelectorAll('[data-account-button]').forEach((node) => { node.textContent = signedIn ? 'Account' : 'Log in'; });
     document.querySelectorAll('[data-admin-link]').forEach((node) => { node.hidden = !isAdmin(user); });
+    document.querySelectorAll('[data-admin-only]').forEach((node) => { node.hidden = !isAdmin(user); });
+  };
+
+  const refreshVerifiedUser = async () => {
+    const result = await window.BraidsAuth.getVerifiedUser();
+    verifiedUser = result.user;
+    return result;
   };
 
   document.querySelectorAll('[data-auth-tab]').forEach((tab) => tab.addEventListener('click', () => {
@@ -77,6 +85,8 @@
     const { error } = await client.auth.signInWithPassword({ email: String(data.get('email')).trim(), password: String(data.get('password')) });
     setBusy(form, false);
     if (error) return showStatus(error.message, 'error');
+    await client.auth.refreshSession();
+    await refreshVerifiedUser();
     showStatus('Login successful. Opening Braids…', 'success');
     window.setTimeout(() => redirectTo(safeNext), 350);
   });
@@ -100,6 +110,8 @@
     setBusy(form, false);
     if (error) return showStatus(error.message, 'error');
     if (result.session) {
+      await client.auth.refreshSession();
+      await refreshVerifiedUser();
       showStatus('Account created. Opening Braids…', 'success');
       return window.setTimeout(() => redirectTo(safeNext), 350);
     }
@@ -137,7 +149,14 @@
   }));
 
   const initialize = async () => {
-    const { user, error } = await window.BraidsAuth.getVerifiedUser();
+    let { user, error } = await refreshVerifiedUser();
+    const { data: sessionData } = await client.auth.getSession();
+    const sessionRole = sessionData?.session?.user?.app_metadata?.role || null;
+    const verifiedRole = user?.app_metadata?.role || null;
+    if (user && sessionData?.session && sessionRole !== verifiedRole) {
+      await client.auth.refreshSession();
+      ({ user, error } = await refreshVerifiedUser());
+    }
     let profile = null;
     if (user) {
       const result = await client.from('profiles').select('display_name').eq('id', user.id).maybeSingle();
@@ -157,6 +176,13 @@
     if (params.has('confirmed')) showStatus('Email confirmed. You can now log in.', 'success');
   };
 
-  client.auth.onAuthStateChange((_event, session) => updateAccountUI(session?.user || null));
+  client.auth.onAuthStateChange((_event, session) => {
+    if (!session?.user) {
+      verifiedUser = null;
+      updateAccountUI(null);
+      return;
+    }
+    updateAccountUI(verifiedUser?.id === session.user.id ? verifiedUser : session.user);
+  });
   initialize();
 })();
